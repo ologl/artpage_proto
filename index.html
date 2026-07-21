@@ -63,15 +63,53 @@
     <!-- ----- Konst ----- -->
     <section id="konst" class="content-section">
       <h2>Konst</h2>
+      <!-- Each thumbnail links to a full-size "lightbox" view further down
+           this file (e.g. #img-222). No JavaScript — this works using plain
+           anchor links and the CSS :target selector. -->
       <div class="art-grid">
-        <!-- Dummy artworks. Replace src with real files when ready, or add more <img> tags. -->
-        <img src="images/art/dummies/222.jpg" alt="">
-        <img src="images/art/dummies/243.jpg" alt="">
-        <img src="images/art/dummies/263.jpg" alt="">
-        <img src="images/art/dummies/265.jpg" alt="">
-        <img src="images/art/dummies/277.jpg" alt="">
+        <!-- Dummy artworks. Replace src with real files when ready, or add more <a><img></a> pairs
+             (remember to also add a matching .lightbox block below with the same id). -->
+        <a href="#img-222"><img src="images/art/dummies/222.jpg" alt=""></a>
+        <a href="#img-243"><img src="images/art/dummies/243.jpg" alt=""></a>
+        <a href="#img-263"><img src="images/art/dummies/263.jpg" alt=""></a>
+        <a href="#img-265"><img src="images/art/dummies/265.jpg" alt=""></a>
+        <a href="#img-277"><img src="images/art/dummies/277.jpg" alt=""></a>
       </div>
     </section>
+
+    <!-- ----- Lightboxes (full-size image view) -----
+         One block per artwork. Structure for each:
+           - a full-screen "backdrop" link — clicking it closes the lightbox
+           - the full-size image itself — clicking it does nothing (desktop),
+             or also closes (phone — see the mobile section in style.css)
+           - a "Stäng" (close) button as a clearly labeled backup
+         To add a new artwork, copy one whole <div class="lightbox">...</div>
+         block, change the id and the image src to match. -->
+    <div id="img-222" class="lightbox">
+      <a href="#" class="lightbox-backdrop" aria-label="Stäng"></a>
+      <img class="lightbox-img" src="images/art/dummies/222.jpg" alt="">
+      <a href="#" class="lightbox-close">Stäng</a>
+    </div>
+    <div id="img-243" class="lightbox">
+      <a href="#" class="lightbox-backdrop" aria-label="Stäng"></a>
+      <img class="lightbox-img" src="images/art/dummies/243.jpg" alt="">
+      <a href="#" class="lightbox-close">Stäng</a>
+    </div>
+    <div id="img-263" class="lightbox">
+      <a href="#" class="lightbox-backdrop" aria-label="Stäng"></a>
+      <img class="lightbox-img" src="images/art/dummies/263.jpg" alt="">
+      <a href="#" class="lightbox-close">Stäng</a>
+    </div>
+    <div id="img-265" class="lightbox">
+      <a href="#" class="lightbox-backdrop" aria-label="Stäng"></a>
+      <img class="lightbox-img" src="images/art/dummies/265.jpg" alt="">
+      <a href="#" class="lightbox-close">Stäng</a>
+    </div>
+    <div id="img-277" class="lightbox">
+      <a href="#" class="lightbox-backdrop" aria-label="Stäng"></a>
+      <img class="lightbox-img" src="images/art/dummies/277.jpg" alt="">
+      <a href="#" class="lightbox-close">Stäng</a>
+    </div>
 
     <!-- ----- Kontakt ----- -->
     <section id="kontakt" class="content-section">
