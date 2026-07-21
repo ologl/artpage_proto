@@ -114,25 +114,20 @@ main {
   margin-bottom: 1.2rem;
 }
 
-/* Biografi: portrait + text side by side on wide screens, stacked on mobile */
+/* Biografi: portrait in a fixed-width column, text fills the rest.
+   Grid makes the two-column intent explicit — no wrapping surprises. */
 .bio-layout {
-  display: flex;
-  flex-wrap: nowrap;  /* stays side-by-side until the mobile breakpoint below */
-  gap: 2rem;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 220px 1fr; /* fixed portrait column, then remaining space for text */
+  column-gap: 2rem;
+  align-items: start;
 }
 
 .portrait {
-  width: 220px;
-  flex-shrink: 0;
+  width: 100%; /* fills its 220px grid column */
 }
 
-.bio-layout div {
-  flex: 1;
-  min-width: 250px;
-}
-
-.bio-layout p + p {
+.bio-text p + p {
   margin-top: 1rem; /* space between bio paragraphs */
 }
 
@@ -170,12 +165,13 @@ footer {
   }
 
   .portrait {
-    width: 100%;
     max-width: 220px;
+    justify-self: center; /* centers the portrait when stacked above the text */
   }
 
   .bio-layout {
-    flex-wrap: wrap; /* stack portrait above text, but only on small screens */
+    grid-template-columns: 1fr; /* single column: portrait stacks above text */
+    row-gap: 1.5rem;
   }
 
   .art-grid img {
