@@ -138,8 +138,13 @@ main {
   gap: 1rem;
 }
 
+.art-grid a {
+  display: block;
+  width: calc(33.333% - 0.7rem); /* three per row on wide screens */
+}
+
 .art-grid img {
-  width: calc(33.333% - 0.7rem);
+  width: 100%;
   transition: opacity 0.2s ease;
 }
 
@@ -228,7 +233,7 @@ footer {
     row-gap: 1.5rem;
   }
 
-  .art-grid img {
+  .art-grid a {
     width: calc(50% - 0.5rem); /* two per row on small screens */
   }
 
