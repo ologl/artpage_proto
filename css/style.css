@@ -140,6 +140,60 @@ main {
 
 .art-grid img {
   width: calc(33.333% - 0.7rem);
+  transition: opacity 0.2s ease;
+}
+
+.art-grid a:hover img {
+  opacity: 0.85; /* small hint that the image is clickable */
+}
+
+/* ============================================
+   LIGHTBOX (full-size image view)
+   No JavaScript — built with the CSS :target
+   selector. Clicking a thumbnail's link changes
+   the page's URL to e.g. #img-222, which makes
+   the matching .lightbox div below visible.
+   ============================================ */
+.lightbox {
+  display: none;           /* hidden by default */
+  position: fixed;
+  inset: 0;                /* shorthand for top/right/bottom/left: 0 */
+  z-index: 1000;
+}
+
+.lightbox:target {
+  display: block;          /* becomes visible when its id matches the URL */
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 20, 18, 0.9);
+  display: block;
+}
+
+.lightbox-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90vw;
+  max-height: 80vh;
+  z-index: 1;              /* sits above the backdrop, so clicking the image itself doesn't close it */
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  z-index: 1;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 0.6rem 1.2rem;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
 }
 
 /* ============================================
@@ -176,5 +230,11 @@ footer {
 
   .art-grid img {
     width: calc(50% - 0.5rem); /* two per row on small screens */
+  }
+
+  .lightbox-img {
+    max-width: 92vw;
+    max-height: 75vh;
+    pointer-events: none; /* clicks pass through to the backdrop underneath, so tapping the image also closes it */
   }
 }
