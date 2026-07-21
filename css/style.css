@@ -1,8 +1,19 @@
+/* ============================================
+   COLORS
+   All colors are defined once here, so changing
+   the palette later just means editing this list.
+   ============================================ */
 :root {
-  --color-bg: #ffffff;
-  --color-text: #111111;
+  --color-bg: #F6F5F1;        /* page background — "stockholmsvit" */
+  --color-text: #2B2A26;      /* main text color, soft near-black */
+  --color-accent-blue: #8A9199;  /* muted slate-blue, from the ocean photo */
+  --color-accent-sand: #C7A87C;  /* faded ochre, from the plains artworks */
+  --color-line: #DEDCD3;      /* thin dividers / borders */
 }
 
+/* ============================================
+   BASE
+   ============================================ */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,12 +21,152 @@
 }
 
 body {
-  font-family: system-ui, sans-serif;
+  font-family: 'EB Garamond', serif;
   background-color: var(--color-bg);
   color: var(--color-text);
-  line-height: 1.5;
+  line-height: 1.6;
+  font-size: 1.1rem;
 }
 
-header, main, footer {
-  padding: 2rem;
+h1, h2 {
+  font-weight: normal;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  min-height: 300px;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills the space without distorting the image */
+}
+
+.hero-name {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  font-family: 'Caveat', cursive;
+  font-size: 2.8rem;
+  color: #ffffff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   NAV
+   ============================================ */
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 1.2rem 1rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.main-nav a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-variant: small-caps;
+  letter-spacing: 0.15em;
+  font-size: 1rem;
+}
+
+.main-nav a:hover {
+  color: var(--color-accent-blue);
+}
+
+/* ============================================
+   CONTENT SECTIONS
+   ============================================ */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.content-section {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.content-section:last-child {
+  border-bottom: none;
+}
+
+.content-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Biografi: portrait + text side by side on wide screens, stacked on mobile */
+.bio-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.portrait {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.bio-layout p {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Konst: simple wrapping grid of artwork images */
+.art-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.art-grid img {
+  width: calc(33.333% - 0.7rem);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--color-accent-blue);
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   MOBILE
+   ============================================ */
+@media (max-width: 600px) {
+  .hero-name {
+    font-size: 2rem;
+  }
+
+  .main-nav {
+    gap: 1.5rem;
+  }
+
+  .portrait {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .art-grid img {
+    width: calc(50% - 0.5rem); /* two per row on small screens */
+  }
 }
