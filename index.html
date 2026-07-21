@@ -1,23 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UL — Art</title>
+  <title>UL — Konst</title>
+
+  <!-- Two fonts: a calm serif for reading text, a handwriting-style font for the name/title -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <header>
-    <h1>UL</h1>
+  <!-- ============ HERO ============ -->
+  <!-- Full-width image at the top. Swap hero_dummy.jpg for the real photo later. -->
+  <header class="hero">
+    <img class="hero-image" src="images/assets/hero_dummy.jpg" alt="">
+    <h1 class="hero-name">Konstnärens Namn</h1>
   </header>
 
+  <!-- ============ NAV ============ -->
+  <!-- Simple three-item menu. Each link points to a section further down the page. -->
+  <nav class="main-nav">
+    <a href="#biografi">Biografi</a>
+    <a href="#konst">Konst</a>
+    <a href="#annat">Annat</a>
+  </nav>
+
+  <!-- ============ CONTENT ============ -->
   <main>
-    <p>Prototype coming together.</p>
+
+    <!-- ----- Biografi ----- -->
+    <section id="biografi" class="content-section">
+      <h2>Biografi</h2>
+      <div class="bio-layout">
+        <img class="portrait" src="images/assets/portrait_dummy.jpg" alt="Porträtt">
+        <p>
+          Här kommer en kort biografi om konstnären. Text kan bytas ut mot den
+          riktiga biografin senare — det här är bara platshållartext för att se
+          hur layouten ser ut med bild och text sida vid sida.
+        </p>
+      </div>
+    </section>
+
+    <!-- ----- Konst ----- -->
+    <section id="konst" class="content-section">
+      <h2>Konst</h2>
+      <div class="art-grid">
+        <!-- Dummy artworks. Replace src with real files when ready, or add more <img> tags. -->
+        <img src="images/art/dummies/222.jpg" alt="">
+        <img src="images/art/dummies/243.jpg" alt="">
+        <img src="images/art/dummies/263.jpg" alt="">
+        <img src="images/art/dummies/265.jpg" alt="">
+        <img src="images/art/dummies/277.jpg" alt="">
+      </div>
+    </section>
+
+    <!-- ----- Annat ----- -->
+    <section id="annat" class="content-section">
+      <h2>Annat</h2>
+      <p>
+        Plats för övrig information — utställningar, kontaktuppgifter,
+        pressklipp eller annat som inte passar under Biografi eller Konst.
+      </p>
+    </section>
+
   </main>
 
   <footer>
-    <p>&copy; 2026 UL</p>
+    <p>&copy; 2026</p>
   </footer>
 
 </body>
