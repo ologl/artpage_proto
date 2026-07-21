@@ -24,8 +24,8 @@ body {
   font-family: 'EB Garamond', serif;
   background-color: var(--color-bg);
   color: var(--color-text);
-  line-height: 1.6;
-  font-size: 1.1rem;
+  line-height: 1.7;    /* generous line spacing helps readability, especially for older readers */
+  font-size: 1.25rem;  /* comfortable reading size; everything below scales off this via rem */
 }
 
 h1, h2 {
@@ -80,7 +80,9 @@ img {
   text-decoration: none;
   font-variant: small-caps;
   letter-spacing: 0.15em;
-  font-size: 1rem;
+  font-size: 1.15rem;   /* matches the larger base text size */
+  padding: 0.6rem 0.3rem;  /* bigger tap/click target around each link */
+  display: inline-block;
 }
 
 .main-nav a:hover {
@@ -123,9 +125,13 @@ main {
   flex-shrink: 0;
 }
 
-.bio-layout p {
+.bio-layout div {
   flex: 1;
   min-width: 250px;
+}
+
+.bio-layout p + p {
+  margin-top: 1rem; /* space between bio paragraphs */
 }
 
 /* Konst: simple wrapping grid of artwork images */
