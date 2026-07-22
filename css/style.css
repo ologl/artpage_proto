@@ -112,6 +112,8 @@ main {
 .content-section h2 {
   font-size: 1.6rem;
   margin-bottom: 1.2rem;
+  font-variant: small-caps;
+  letter-spacing: 0.15em;
 }
 
 /* Biografi: portrait in a fixed-width column, text fills the rest.
