@@ -119,17 +119,19 @@ main {
   letter-spacing: 0.15em;
 }
 
-/* Biografi: portrait in a fixed-width column, text fills the rest.
-   Grid makes the two-column intent explicit — no wrapping surprises. */
-.bio-layout {
-  display: grid;
-  grid-template-columns: 220px 1fr; /* fixed portrait column, then remaining space for text */
-  column-gap: 2rem;
-  align-items: start;
+/* Biografi: portrait floats to the left, text wraps around it like an
+   old illustrated manuscript — once the text runs past the bottom of
+   the image, it continues at full width. */
+.bio-layout::after {
+  content: "";
+  display: block;
+  clear: both; /* keeps the section's bottom border from sitting mid-image */
 }
 
 .portrait {
-  width: 100%; /* fills its 220px grid column */
+  float: left;
+  width: 220px;
+  margin: 0 2rem 1rem 0; /* gap between the image and the wrapping text */
 }
 
 .bio-text p + p {
@@ -229,13 +231,10 @@ footer {
   }
 
   .portrait {
+    float: none;      /* no wrapping on small screens — image sits above the text instead */
+    width: 100%;
     max-width: 220px;
-    justify-self: center; /* centers the portrait when stacked above the text */
-  }
-
-  .bio-layout {
-    grid-template-columns: 1fr; /* single column: portrait stacks above text */
-    row-gap: 1.5rem;
+    margin: 0 auto 1.5rem auto; /* centered, with space below before the text starts */
   }
 
   .art-grid a {
